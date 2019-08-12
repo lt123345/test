@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hello React!</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<style>
+  .bordered {
+    display: block;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 12px #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+ 
+<div id="example"></div>
+<script type="text/babel">
+
+const textBreakByHtml = "预订您房源的前 3 名房客，入住时间在开启「新房特惠」90 天内的部分，可享受 8 折优惠。<br/>" + "房客下单时间需在开启「新房特惠」的 30 天内。";
+const textBreakByString = "预订您房源的前 3 名房客，入住时间在开启「新房特惠」90 天内的部分，可享受 8 折优惠。" + "\n" + "房客下单时间需在开启「新房特惠」的 30 天内。";
+
+function BreakByHtml({ text }) {
+  return <div className="bordered">
+    <span dangerouslySetInnerHTML={{__html: text}}></span>
+  </div>
+}
+
+function BreakByString({ text }) {
+  return <div className="bordered">
+    <span style={{whiteSpace: 'pre-line'}}>{text}</span>
+  </div>
+}
+
+ReactDOM.render(
+    <div>
+      <BreakByHtml text={textBreakByHtml}/>
+      <BreakByString text={textBreakByString}/>
+    </div>,
+    document.getElementById('example')
+);
+</script>
+ 
+</body>
+</html>
