@@ -40,7 +40,10 @@ function BreakByString({ text }) {
 ReactDOM.render(
     <div>
       <BreakByHtml text={textBreakByHtml}/>
-      <BreakByString text={textBreakByString}/>
+      <BreakByString text={textBreakByString} key={1}/>
+      <BreakByString text={textBreakByString} key={2}/>
+      <BreakByString text={textBreakByString} key={3}/>
+      <BreakByString text={textBreakByString} key={4}/>
     </div>,
     document.getElementById('example')
 );
